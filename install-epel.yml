@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Install EPEL
+      yum:
+        name: http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm     
+        state: installed
+    - copy: 
+        src: /home/ec2-user/centos.repo
+        dest: /etc/yum.repos.d/centos.repo
